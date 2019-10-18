@@ -117,3 +117,24 @@ $(document).on("click","#salvaEdit",function(){
         }
     }); 
 });
+
+function bloquear(){
+  $("#nome").prop("readonly",true);
+  $("#senha").prop("readonly",true);
+  $("#email").prop("readonly",true);
+}
+function liberar(){
+  $("#nome").prop("readonly",false);
+  $("#senha").prop("readonly",false);
+  $("#email").prop("readonly",false);
+}
+$(document).on("click","#editar",function(){
+    liberar();
+});
+
+$(document).on("click","#cancelar",function(){
+    bloquear();
+    $("#nome").val("");
+    $("#senha").val("");
+    $("#email").val("");
+});
