@@ -94,3 +94,26 @@ $(document).on("click","#deletar",function(){
         }
     }); 
 });
+
+$(document).on("click","#salvaEdit",function(){
+   var parametro = {
+        "codigo": $("option:selected",("#lista")).val(),
+        "nome": $("#nome").val(),
+        "senha": $("#senha").val(),
+        "email": $("#email").val()
+    };
+    $.ajax({
+        type:"post", //como enviar
+        url:"https://dominioappsjussa.000webhostapp.com/atualiza.php",//para onde enviar
+        data:parametro,
+        //se der certo
+        success: function(data){
+          navigator.notification.alert(data);
+          location.reload();
+        },
+        //se der errado
+        error: function(data){
+             navigator.notification.alert("Erro ao cadastrar");
+        }
+    }); 
+});
